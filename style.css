@@ -1,0 +1,1921 @@
+body{
+    background-color: beige;
+    font-family: tahoma;
+}
+ul.lista {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #613813;
+    text-align: center; 
+    z-index: 2;
+    margin-top: 1rem;
+    margin-left: 20%;
+    margin-right: 20%;
+    max-width: 60%
+}
+li.rel{
+    float:left;
+    color:beige;
+    border-right: 1px beige solid;
+}
+li.rel:last-child{
+    border-right: none;
+}
+li.rel a{
+    color: beige;
+    font-family: tahoma;
+    font-size: 1.6vw;
+    padding: 2vh 2.616vw;
+    font-style: italic;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+}
+li.rel a:hover{
+    background-color: hsl(35, 60%, 45%);
+}
+li.rel #kosarSzam{
+    position: relative;
+    font-size: 1.3rem;
+    border: black 2px solid;
+    border-radius: 100px;
+    background-color: beige;
+    top: -1rem;
+    right: 0.5rem;
+    color: black;
+    font-style: normal;
+}
+.kep{
+    float: left;
+    margin-left: 10%;
+    margin-top: 10px;
+    width: 25%;
+}
+.szoveg{
+    font-size: 3rem;
+    position: absolute;
+    width: 50%;
+    margin-top: 8vh;
+    margin-left: 40%;
+    margin-right: 10%;
+    font-style: normal;
+    text-align: center;
+    font-family: tahoma;
+}
+.iras{
+    margin-top: 1%;
+}
+.iras2{
+    margin-top: 24%;
+}
+.iras3{
+    margin-top: 48%;
+}
+#footer{
+    position: relative;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #613813;
+    color: beige;
+    padding: 30px;
+    text-align: left;
+    margin-top: 55%;
+    font-size: 3dvh;
+    font-family: tahoma;
+}
+#szoveglent{
+    margin-left: 19%;
+}
+#elerhet{
+    font-size: 2.5dvh;
+}
+#footer2{
+    position: relative;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #613813;
+    color: beige;
+    padding: 30px;
+    text-align: left;
+    margin-top: 20px;
+    font-size: 3dvh;
+    font-family: tahoma;
+}
+.tabl_kepek{
+    margin-top: 4vh;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+.akepek{
+    width: 32.95%;
+}
+/* megjelenő ablak */
+#ablak{
+    position: fixed;
+    top: 50%;
+    bottom: 50%;
+    width: 30%;
+    height: 50%;
+    text-align: center;
+    margin: auto;
+    margin-left: 35%;
+    margin-right: 35%;
+    border: 4px solid #613813;
+    border-radius: 16px;
+    background-color: white;
+    z-index: 5;
+}
+.active{
+    position: fixed;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+
+}
+#overlay{
+    pointer-events: all;
+    transition: 200ms ease-in-out;
+    opacity: 1;
+}
+#etelNev{
+    font-size: 1.5rem;
+}
+#etelOsszetevok{
+    position: absolute;
+    font-size: 1.4rem;
+    top: 50px;
+    margin-left: 0%;
+}
+#etelAr{
+    position: absolute;
+    font-size: 1.2rem;
+    bottom: 60px;
+    right: 2%;
+}
+#bezar{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 4px;
+    right: 4px;
+    font-size: 1.2rem;
+    background-color:#613813;
+    border: none;
+    padding: 0px 0px;
+    text-align: center;
+    cursor: pointer;
+    color: white;
+}
+#bezar:hover{
+    background-color:hsl(35, 60%, 45%);;
+}
+#megsem{
+    position: absolute;
+    width: 100px;
+    height: 30px;
+    bottom: 4px;
+    left: 5px;
+    font-size: 1.4rem;
+    background-color: #613813;
+    border: none;
+    padding: 0px 0px;
+    text-align: center;
+    cursor: pointer;
+    color: white;
+}
+#megsem:hover{
+    background-color: hsl(35, 60%, 45%);
+}
+#kosarba{
+    position: absolute;
+    width: 100px;
+    height: 30px;
+    bottom: 4px;
+    right: 4px;
+    font-size: 1.4rem;
+    background-color: #613813;
+    border: none;
+    padding: 0px 0px;
+    text-align: center;
+    cursor: pointer;
+    color: white;
+}
+#kosarba:hover{
+    background-color: hsl(35, 60%, 45%);
+}
+#kosarUres{
+    border-top: solid 2px #613813;
+    border-bottom: solid 2px #613813;
+    color: #613813;
+    position: absolute;
+    padding: 1em 0em;
+    font-size: 2em;
+    top: 20%;
+    left: 26%;
+    text-align: center;
+}
+.hidden{
+    display: none;
+}
+
+/* megjelenő ablak vége*/
+#etlap2{
+    margin-top: 0%;
+}
+.pizza{
+    font-size: 2.4rem;
+    font-family: tahoma;
+    margin-left: 20%;
+    margin-right: 35%;
+    margin-top: 2rem;
+    border-bottom: solid 3px gray;
+}
+#tablazatuj{
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+    border-right: gray solid 2px;
+}
+.meret{
+    text-align: center
+}   
+.ar{
+    text-align: center
+}
+.utolsosor{
+    height: 2px;
+    width: 60%;
+    background-color: gray;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+.utolsoOszlop{
+    width: 10%;
+    margin-right: 0;
+    text-align: right;
+}
+.rendel{
+    padding: 0.8rem; 
+    font-size: 0.8rem;
+    border: none;
+    background-color: #613813;
+    color: beige;
+    cursor: pointer;
+}
+#vissza{
+    position: fixed;
+    z-index: 5;
+    float: right;
+    font-size: 300%;
+    bottom: 5%;
+    right: 5%;
+}
+.hambi{
+    font-size: 2.4rem;
+    font-family: tahoma;
+    margin-left: 20%;
+    margin-right: 35%;
+    margin-top: 2rem;
+    border-bottom: solid 3px gray;
+}
+.photo{
+    margin-left: 60%;
+}
+.ar{
+    text-align: center;
+    width: 10%;
+}
+#kosarTartalom{
+    position: absolute;
+    text-align: center;
+    top: 20%;
+    margin-left: 20%;
+    margin-right: 42%;
+    width: 38%;
+    border: solid 2px #613813;
+    border-radius: 4px;
+    font-size: 1.2em;
+}
+#kosarTartalom tr:nth-child(odd){
+    background-color:  #613813;
+    color: beige;
+}
+#kosarTartalom tr:nth-child(even){
+    background-color: beige;
+}
+#osszesito{
+    position: absolute;
+    top: 20%;
+    height: 15em;
+    width: 20%;
+    margin-left: 60%;
+    margin-right: 20%;
+    border: 3px solid #613813;
+    border-radius: 20px;
+}
+#osszesitoNev{
+    position: relative;
+    font-size: 1.5em;
+    color:black;
+    border-bottom: 2px solid #613813;
+    font-family: sans-serif;
+    margin-left: 6%;
+    margin-right: 6%;
+}
+#szallitas{
+    position: absolute;
+    top: 40px;
+    left: 10px;
+    font-size: 1.4em;
+}
+#csomagolas{
+    position: absolute;
+    top: 80px;
+    left: 10px;
+    font-size: 1.4em;
+}
+#kosarOssz{
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-size: 1.4em;
+}
+#kosarSzum{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 1.4em;
+}
+#kosarTorol{
+    position: absolute;
+    background-color: #613813;
+    right: 20%;
+    width: 7%;
+    height: 5%;
+    top: 56%;
+    color: beige;
+    border: none;
+    cursor: pointer;
+}
+#kosarTorol:hover{
+    background-color: hsl(35, 60%, 45%);
+}
+@media (max-width: 1920px) {
+    .kep{
+        float: left;
+        margin-left: 20%;
+        margin-top: 10px;
+        width: 20%;
+    }
+    .szoveg{
+        font-size: 1.2rem;
+        position: absolute;
+        width: 40%;
+        margin-top: 8vh;
+        margin-left: 40%;
+        margin-right: 20%;
+        font-style: normal;
+        text-align: center;
+        font-family: tahoma;
+    }
+    .iras{
+        margin-top: 1%;
+    }
+    .iras2{
+        margin-top: 16%;
+    }
+    .iras3{
+        margin-top: 33%;
+    }
+    .akepek{
+        width: 32.95%;
+    }
+    #szoveglent{
+        margin-left: 19%;
+        font-size: 24px;
+    }
+    #elerhet{
+        font-size: 20px;
+    }
+    #footer2{
+        position: relative;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        background-color: #613813;
+        color: beige;
+        padding: 30px;
+        text-align: left;
+        margin-top: 20px;
+        font-size: 3dvh;
+        font-family: tahoma;
+    }
+}
+@media (max-width: 1440px) {
+    .kep{
+        float: left;
+        margin-left: 20%;
+        margin-top: 10px;
+        width: 20%;
+    }
+    .szoveg{
+        font-size: 22rem;
+        position: absolute;
+        width: 40%;
+        margin-top: 4vh;
+        margin-left: 40%;
+        margin-right: 20%;
+        font-style: normal;
+        text-align: center;
+        font-family: tahoma;
+    }
+    .iras{
+        margin-top: 1%;
+    }
+    .iras2{
+        margin-top: 16%;
+    }
+    .iras3{
+        margin-top: 33%;
+    }
+    .akepek{
+        width: 280px;
+    }
+    #szoveglent{
+        margin-left: 19%;
+        font-size: 24px;
+    }
+    #elerhet{
+        font-size: 20px;
+    }
+    #footer2{
+        position: relative;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        background-color: #613813;
+        color: beige;
+        padding: 30px;
+        text-align: left;
+        margin-top: 20px;
+        font-size: 3dvh;
+        font-family: tahoma;
+    }
+}
+@media (max-width: 1024px) {
+    ul.lista {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #613813;
+        text-align: center; 
+        z-index: 2;
+        margin-top: 1rem;
+        margin-left: 20%;
+        margin-right: 20%;
+        max-width: 60%
+    }
+    li.rel{
+        float:left;
+        color:beige;
+        border-right: 1px beige solid;
+    }
+    li.rel:last-child{
+        border-right: none;
+    }
+    li.rel a{
+        color: beige;
+        font-family: tahoma;
+        font-size: 18px;
+        padding: 16px 24.1px;
+        font-style: italic;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+    }
+    .kep{
+        float: left;
+        margin-left: 20%;
+        margin-top: 10px;
+        width: 20%;
+    }
+    .szoveg{
+        font-size: 0.72rem;
+        position: absolute;
+        width: 40%;
+        margin-top: 4vh;
+        margin-left: 40%;
+        margin-right: 20%;
+        font-style: normal;
+        text-align: center;
+        font-family: tahoma;
+    }
+    .iras{
+        margin-top: 1%;
+    }
+    .iras2{
+        margin-top: 16%;
+    }
+    .iras3{
+        margin-top: 33%;
+    }
+    .akepek{
+        width: 198px;
+    }
+    #szoveglent{
+        margin-left: 19%;
+        font-size: 22px;
+    }
+    #elerhet{
+        font-size: 18px;
+    }
+    #footer2{
+        position: relative;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        background-color: #613813;
+        color: beige;
+        padding: 30px;
+        text-align: left;
+        margin-top: 20px;
+        font-size: 3dvh;
+        font-family: tahoma;
+    }
+}
+@media (max-width: 768px) {
+    .szoveg{
+        font-size: 1.3vw;
+        position: absolute;
+        width: 40%;
+        margin-top: 5vh;
+        margin-left: 40%;
+        margin-right: 20%;
+        font-style: normal;
+        text-align: center;
+        font-family: tahoma;
+    }
+    ul.lista {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #613813;
+        text-align: center; 
+        z-index: 2;
+        margin-top: 1rem;
+        margin-left: 20%;
+        margin-right: 20%;
+        max-width: 60%
+    }
+    li.rel{
+        float:left;
+        color:beige;
+        border-right: 1px beige solid;
+    }
+    li.rel:last-child{
+        border-right: none;
+    }
+    li.rel a{
+        color: beige;
+        font-family: tahoma;
+        font-size: 15px;
+        padding: 12px 14.5px;
+        font-style: italic;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+    }
+    .kep{
+        float: left;
+        margin-left: 20%;
+        margin-top: 10px;
+        width: 20%;
+    }
+    .szoveg{
+        font-size: 0.72rem;
+        position: absolute;
+        width: 40%;
+        margin-top: 4vh;
+        margin-left: 40%;
+        margin-right: 20%;
+        font-style: normal;
+        text-align: center;
+        font-family: tahoma;
+    }
+    .iras{
+        margin-top: 1%;
+    }
+    .iras2{
+        margin-top: 16%;
+    }
+    .iras3{
+        margin-top: 33%;
+    }
+    .akepek{
+        width: 147px;
+    }
+    #szoveglent{
+        margin-left: 19%;
+        font-size: 20px;
+    }
+    #elerhet{
+        font-size: 16px;
+    }
+    #footer2{
+        position: relative;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        background-color: #613813;
+        color: beige;
+        padding: 30px;
+        text-align: left;
+        margin-top: 20px;
+        font-size: 3dvh;
+        font-family: tahoma;
+    }
+}
+@media (max-width:475px){
+    ul.lista {
+        margin-left: 10%;
+        margin-right: 10%;
+        max-width: 80%
+    }
+    li.rel a{
+        font-size: 10px;
+        padding: 0.88rem 0.831rem;
+    }
+    li.rel #kosarSzam{
+        font-size: 10px;
+        top: -0.4rem;
+        right: 0.2rem;
+    }
+    .tabl_kepek{
+        margin-top: 4vh;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    .kep{
+        float: left;
+        margin-left: 10%;
+        margin-top: 10px;
+        width: 25%;
+    }
+    .szoveg{
+        font-size: 0.6rem;
+        position: absolute;
+        width: 50%;
+        margin-top: 4vh;
+        margin-left: 35%;
+        margin-right: 20%;
+    }
+    .iras{
+        margin-top: 1%;
+    }
+    .iras2{
+        margin-top: 24%;
+    }
+    .iras3{
+        margin-top: 48%;
+    }
+    .akepek{
+        width: 32%;
+    }
+    .hambi{
+        font-size: 1.5rem;
+        margin-left: 10%;
+    }
+    .pizza{
+        font-size: 1.5rem;
+        margin-left: 10%;
+    }
+    #tablazatuj{
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    .nev{
+        font-size: 12px;
+    }
+    .meret{
+        text-align: center;
+        font-size: 12px;
+    }   
+    .ar{
+        text-align: center;
+        font-size: 12px;
+    }
+    .rendel{
+        padding: 0.6rem; 
+        font-size: 0.6rem;
+    }
+    /* kosárba helyez */
+    #ablak{
+        position: fixed;
+        width: 95%;
+        margin-left: 0%;
+        margin-right: 0%;
+        top: 50%;
+        bottom: 50%;
+    }
+    #etelNev{
+        font-size: 1.2rem;
+    }
+    #etelOsszetevok{
+        font-size: 1rem;
+    }
+    #etelAr{
+        font-size: 1rem;
+    }
+    #megsem{
+        width: 80px;
+        font-size: 1rem;
+    }
+    #kosarba{
+        width: 80px;
+        font-size: 1rem;
+    }
+    /* vége */
+    /* kosár tartalom */
+    #kosarUres{
+        font-size: 1.2em;
+        top: 12%;
+        left: 10%;
+        right: 10%;
+    }
+    #kosarTartalom{
+        top: 10%;
+        margin-left: 0%;
+        width: 60%;
+        font-size: 0.8em;
+    }
+    #kosarTartalom tr:nth-child(odd){
+        background-color:  #613813;
+        color: beige;
+    }
+    #kosarTartalom tr:nth-child(even){
+        background-color: beige;
+    }
+    #osszesito{
+        position: absolute;
+        top: 10%;
+        height: 8em;
+        width: 34%;
+        margin-left: 62%;
+    }
+    #osszesitoNev{
+        top: 0.2em;
+        font-size: 0.8em;
+    }
+    #szallitas{
+        position: absolute;
+        top: 2em;
+        left: 0.2em;
+        font-size: 0.64em;
+    }
+    #csomagolas{
+        position: absolute;
+        top: 3.5em;
+        left: 0.2em;
+        font-size: 0.64em;
+    }
+    #kosarOssz{
+        bottom: 0.4em;
+        left: 0.2em;
+        font-size: 0.7em;
+    }
+    #kosarSzum{
+        bottom: 0.4em;
+        right: 0.2em;
+        font-size: 0.7em;
+    }
+    #kosarTorol{
+        right: 2%;
+        width: 15%;
+        height: 5%;
+        top: 32%;
+    }
+    /* kosár tartalom vége */
+    #szoveglent{
+        margin-left: 5%;
+        font-size: 0.64rem;
+    }
+    #elerhet{
+        font-size: 0.6rem;
+    }
+    #footer{
+        padding: 30px;
+        margin-top: 320px;
+        font-size: 3dvh;
+    }
+    #vissza{
+        font-size: 200%;
+        bottom: 3%;
+        right: 3%;
+    }
+}
+@media (max-width:450px){
+    ul.lista {
+        margin-left: 10%;
+        margin-right: 10%;
+        max-width: 80%
+    }
+    li.rel a{
+        font-size: 9.5px;
+        padding: 0.85rem 0.768rem;
+    }
+    li.rel #kosarSzam{
+        font-size: 9.5px;
+        top: -0.4rem;
+        right: 0.2rem;
+    }
+    .tabl_kepek{
+        margin-top: 4vh;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    .kep{
+        float: left;
+        margin-left: 10%;
+        margin-top: 10px;
+        width: 25%;
+    }
+    .szoveg{
+        font-size: 0.6rem;
+        position: absolute;
+        width: 50%;
+        margin-top: 4vh;
+        margin-left: 35%;
+        margin-right: 20%;
+    }
+    .iras{
+        margin-top: 1%;
+    }
+    .iras2{
+        margin-top: 24%;
+    }
+    .iras3{
+        margin-top: 48%;
+    }
+    .akepek{
+        width: 32%;
+    }
+    .hambi{
+        font-size: 1.5rem;
+        margin-left: 10%;
+    }
+    .pizza{
+        font-size: 1.5rem;
+        margin-left: 10%;
+    }
+    #tablazatuj{
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    .nev{
+        font-size: 12px;
+    }
+    .meret{
+        text-align: center;
+        font-size: 12px;
+    }   
+    .ar{
+        text-align: center;
+        font-size: 12px;
+    }
+    .rendel{
+        padding: 0.6rem; 
+        font-size: 0.6rem;
+    }
+    #szoveglent{
+        margin-left: 5%;
+        font-size: 0.64rem;
+    }
+    #elerhet{
+        font-size: 0.6rem;
+    }
+    #footer{
+        padding: 30px;
+        margin-top: 320px;
+        font-size: 3dvh;
+    }
+    #vissza{
+        font-size: 200%;
+        bottom: 3%;
+        right: 3%;
+    }
+}
+@media (max-width:424px){
+    ul.lista {
+        margin-left: 10%;
+        margin-right: 10%;
+        max-width: 80%
+    }
+    li.rel a{
+        font-size: 9px;
+        padding: 0.84rem 0.71rem;
+    }
+    li.rel #kosarSzam{
+        font-size: 9px;
+        top: -0.4rem;
+        right: 0.2rem;
+    }
+    .tabl_kepek{
+        margin-top: 4vh;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    .kep{
+        float: left;
+        margin-left: 10%;
+        margin-top: 10px;
+        width: 25%;
+    }
+    .szoveg{
+        font-size: 0.54rem;
+        position: absolute;
+        width: 50%;
+        margin-top: 4vh;
+        margin-left: 35%;
+        margin-right: 20%;
+    }
+    .iras{
+        margin-top: 1%;
+    }
+    .iras2{
+        margin-top: 24%;
+    }
+    .iras3{
+        margin-top: 48%;
+    }
+    .akepek{
+        width: 32%;
+    }
+    .hambi{
+        font-size: 1.5rem;
+        margin-left: 10%;
+    }
+    .pizza{
+        font-size: 1.5rem;
+        margin-left: 10%;
+    }
+    #tablazatuj{
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    .nev{
+        font-size: 12px;
+    }
+    .meret{
+        text-align: center;
+        font-size: 12px;
+    }   
+    .ar{
+        text-align: center;
+        font-size: 12px;
+    }
+    .rendel{
+        padding: 0.6rem; 
+        font-size: 0.6rem;
+    }
+    /* kosárba helyez */
+    #ablak{
+        position: fixed;
+        width: 95%;
+        margin-left: 0%;
+        margin-right: 0%;
+        top: 50%;
+        bottom: 50%;
+    }
+    #etelNev{
+        font-size: 1.2rem;
+    }
+    #etelOsszetevok{
+        font-size: 1rem;
+    }
+    #etelAr{
+        font-size: 1rem;
+    }
+    #megsem{
+        width: 80px;
+        font-size: 1rem;
+    }
+    #kosarba{
+        width: 80px;
+        font-size: 1rem;
+    }
+    /* vége */
+    /* kosár tartalom */
+    #kosarUres{
+        font-size: 1.2em;
+        top: 12%;
+        left: 10%;
+        right: 10%;
+    }
+    #kosarTartalom{
+        top: 10%;
+        margin-left: 0%;
+        width: 60%;
+        font-size: 0.8em;
+    }
+    #kosarTartalom tr:nth-child(odd){
+        background-color:  #613813;
+        color: beige;
+    }
+    #kosarTartalom tr:nth-child(even){
+        background-color: beige;
+    }
+    #osszesito{
+        position: absolute;
+        top: 10%;
+        height: 8em;
+        width: 34%;
+        margin-left: 62%;
+    }
+    #osszesitoNev{
+        top: 0.2em;
+        font-size: 0.8em;
+    }
+    #szallitas{
+        position: absolute;
+        top: 2em;
+        left: 0.2em;
+        font-size: 0.64em;
+    }
+    #csomagolas{
+        position: absolute;
+        top: 3.5em;
+        left: 0.2em;
+        font-size: 0.64em;
+    }
+    #kosarOssz{
+        bottom: 0.4em;
+        left: 0.2em;
+        font-size: 0.7em;
+    }
+    #kosarSzum{
+        bottom: 0.4em;
+        right: 0.2em;
+        font-size: 0.7em;
+    }
+    #kosarTorol{
+        right: 2%;
+        width: 15%;
+        height: 5%;
+        top: 32%;
+    }
+    /* kosár tartalom vége */
+    #szoveglent{
+        margin-left: 5%;
+        font-size: 0.64rem;
+    }
+    #elerhet{
+        font-size: 0.6rem;
+    }
+    #footer{
+        padding: 30px;
+        margin-top: 320px;
+        font-size: 3dvh;
+    }
+    #vissza{
+        font-size: 200%;
+        bottom: 3%;
+        right: 3%;
+    }
+}
+@media (max-width:400px){
+    ul.lista {
+        margin-left: 10%;
+        margin-right: 10%;
+        max-width: 80%
+    }
+    li.rel a{
+        font-size: 8px;
+        padding: 0.82rem 0.723rem;
+    }
+    li.rel #kosarSzam{
+        font-size: 8px;
+        top: -0.4rem;
+        right: 0.2rem;
+    }
+    /* kosárba helyez */
+    #ablak{
+        position: fixed;
+        width: 95%;
+        margin-left: 0%;
+        margin-right: 0%;
+        top: 50%;
+        bottom: 50%;
+    }
+    #etelNev{
+        font-size: 1.2rem;
+    }
+    #etelOsszetevok{
+        font-size: 1rem;
+    }
+    #etelAr{
+        font-size: 1rem;
+    }
+    #megsem{
+        width: 80px;
+        font-size: 1rem;
+    }
+    #kosarba{
+        width: 80px;
+        font-size: 1rem;
+    }
+    /* vége */
+    /* kosár tartalom */
+    #kosarUres{
+        font-size: 1.2em;
+        top: 12%;
+        left: 10%;
+        right: 10%;
+    }
+    #kosarTartalom{
+        top: 10%;
+        margin-left: 0%;
+        width: 60%;
+        font-size: 0.8em;
+    }
+    #kosarTartalom tr:nth-child(odd){
+        background-color:  #613813;
+        color: beige;
+    }
+    #kosarTartalom tr:nth-child(even){
+        background-color: beige;
+    }
+    #osszesito{
+        position: absolute;
+        top: 10%;
+        height: 8em;
+        width: 34%;
+        margin-left: 62%;
+    }
+    #osszesitoNev{
+        top: 0.2em;
+        font-size: 0.8em;
+    }
+    #szallitas{
+        position: absolute;
+        top: 2em;
+        left: 0.2em;
+        font-size: 0.64em;
+    }
+    #csomagolas{
+        position: absolute;
+        top: 3.5em;
+        left: 0.2em;
+        font-size: 0.64em;
+    }
+    #kosarOssz{
+        bottom: 0.4em;
+        left: 0.2em;
+        font-size: 0.7em;
+    }
+    #kosarSzum{
+        bottom: 0.4em;
+        right: 0.2em;
+        font-size: 0.7em;
+    }
+    #kosarTorol{
+        right: 2%;
+        width: 15%;
+        height: 5%;
+        top: 32%;
+    }
+    /* kosár tartalom vége */
+    .tabl_kepek{
+        margin-top: 4vh;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    .kep{
+        float: left;
+        margin-left: 10%;
+        margin-top: 10px;
+        width: 25%;
+    }
+    .szoveg{
+        font-size: 0.5rem;
+        position: absolute;
+        width: 50%;
+        margin-top: 3.6vh;
+        margin-left: 35%;
+        margin-right: 20%;
+    }
+    .iras{
+        margin-top: 1%;
+    }
+    .iras2{
+        margin-top: 24%;
+    }
+    .iras3{
+        margin-top: 48%;
+    }
+    .akepek{
+        width: 32%;
+    }
+    .hambi{
+        font-size: 1.5rem;
+        margin-left: 10%;
+    }
+    .pizza{
+        font-size: 1.5rem;
+        margin-left: 10%;
+    }
+    #tablazatuj{
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    .nev{
+        font-size: 12px;
+    }
+    .meret{
+        text-align: center;
+        font-size: 12px;
+    }   
+    .ar{
+        text-align: center;
+        font-size: 12px;
+    }
+    .rendel{
+        padding: 0.6rem; 
+        font-size: 0.6rem;
+    }
+    #szoveglent{
+        margin-left: 5%;
+        font-size: 0.64rem;
+    }
+    #elerhet{
+        font-size: 0.6rem;
+    }
+    #footer{
+        padding: 30px;
+        margin-top: 300px;
+        font-size: 3dvh;
+    }
+    #vissza{
+        font-size: 200%;
+        bottom: 3%;
+        right: 3%;
+    }
+}
+@media (max-width:374px){
+    ul.lista {
+        margin-left: 10%;
+        margin-right: 10%;
+        max-width: 80%
+    }
+    li.rel a{
+        font-size: 8px;
+        padding: 0.8rem 0.607rem;
+    }
+    li.rel #kosarSzam{
+        font-size: 8px;
+        top: -0.4rem;
+        right: 0.2rem;
+    }
+    .tabl_kepek{
+        margin-top: 4vh;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    .kep{
+        float: left;
+        margin-left: 10%;
+        margin-top: 10px;
+        width: 25%;
+    }
+    .szoveg{
+        font-size: 0.5rem;
+        position: absolute;
+        width: 50%;
+        margin-top: 3.6vh;
+        margin-left: 35%;
+        margin-right: 20%;
+    }
+    .iras{
+        margin-top: 1%;
+    }
+    .iras2{
+        margin-top: 24%;
+    }
+    .iras3{
+        margin-top: 48%;
+    }
+    .akepek{
+        width: 32%;
+    }
+    .hambi{
+        font-size: 1.5rem;
+        margin-left: 10%;
+    }
+    .pizza{
+        font-size: 1.5rem;
+        margin-left: 10%;
+    }
+    #tablazatuj{
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    .nev{
+        font-size: 12px;
+    }
+    .meret{
+        text-align: center;
+        font-size: 12px;
+    }   
+    .ar{
+        text-align: center;
+        font-size: 12px;
+    }
+    .rendel{
+        padding: 0.6rem; 
+        font-size: 0.6rem;
+    }
+    #szoveglent{
+        margin-left: 5%;
+        font-size: 0.64rem;
+    }
+    #elerhet{
+        font-size: 0.6rem;
+    }
+    #footer{
+        padding: 30px;
+        margin-top: 300px;
+        font-size: 3dvh;
+    }
+    #vissza{
+        font-size: 200%;
+        bottom: 3%;
+        right: 3%;
+    }
+}
+@media (max-width:361px){
+    ul.lista {
+        margin-left: 10%;
+        margin-right: 10%;
+        max-width: 80%
+    }
+    li.rel a{
+        font-size: 7.8px;
+        padding: 0.78rem 0.555rem;
+    }
+    li.rel #kosarSzam{
+        font-size: 7.8px;
+        top: -0.4rem;
+        right: 0.2rem;
+    }
+    .tabl_kepek{
+        margin-top: 4vh;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    .kep{
+        float: left;
+        margin-left: 10%;
+        margin-top: 10px;
+        width: 25%;
+    }
+    .szoveg{
+        font-size: 0.5rem;
+        position: absolute;
+        width: 50%;
+        margin-top: 3.6vh;
+        margin-left: 35%;
+        margin-right: 20%;
+    }
+    .iras{
+        margin-top: 1%;
+    }
+    .iras2{
+        margin-top: 24%;
+    }
+    .iras3{
+        margin-top: 48%;
+    }
+    .akepek{
+        width: 32%;
+    }
+    .hambi{
+        font-size: 1.5rem;
+        margin-left: 10%;
+    }
+    .pizza{
+        font-size: 1.5rem;
+        margin-left: 10%;
+    }
+    #tablazatuj{
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    .nev{
+        font-size: 12px;
+    }
+    .meret{
+        text-align: center;
+        font-size: 12px;
+    }   
+    .ar{
+        text-align: center;
+        font-size: 12px;
+    }
+    .rendel{
+        padding: 0.6rem; 
+        font-size: 0.6rem;
+    }
+    #szoveglent{
+        margin-left: 5%;
+        font-size: 0.64rem;
+    }
+    #elerhet{
+        font-size: 0.6rem;
+    }
+    #footer{
+        padding: 30px;
+        margin-top: 260px;
+        font-size: 3dvh;
+    }
+    #vissza{
+        font-size: 200%;
+        bottom: 3%;
+        right: 3%;
+    }
+}
+@media (max-width:341px){
+    ul.lista {
+        margin-left: 10%;
+        margin-right: 10%;
+        max-width: 80%
+    }
+    li.rel a{
+        font-size: 7.4px;
+        padding: 0.75rem 0.504rem;
+    }
+    li.rel #kosarSzam{
+        font-size: 7.4px;
+        top: -0.4rem;
+        right: 0.2rem;
+    }
+    .tabl_kepek{
+        margin-top: 4vh;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    .kep{
+        float: left;
+        margin-left: 10%;
+        margin-top: 10px;
+        width: 25%;
+    }
+    .szoveg{
+        font-size: 0.44rem;
+        position: absolute;
+        width: 50%;
+        margin-top: 3.6vh;
+        margin-left: 35%;
+        margin-right: 20%;
+    }
+    .iras{
+        margin-top: 1%;
+    }
+    .iras2{
+        margin-top: 24%;
+    }
+    .iras3{
+        margin-top: 48%;
+    }
+    .akepek{
+        width: 32%;
+    }
+    .hambi{
+        font-size: 1.5rem;
+        margin-left: 10%;
+    }
+    .pizza{
+        font-size: 1.5rem;
+        margin-left: 10%;
+    }
+    #tablazatuj{
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    .nev{
+        font-size: 12px;
+    }
+    .meret{
+        text-align: center;
+        font-size: 12px;
+    }   
+    .ar{
+        text-align: center;
+        font-size: 12px;
+    }
+    .rendel{
+        padding: 0.6rem; 
+        font-size: 0.6rem;
+    }
+    #szoveglent{
+        margin-left: 5%;
+        font-size: 0.64rem;
+    }
+    #elerhet{
+        font-size: 0.6rem;
+    }
+    #footer{
+        padding: 30px;
+        margin-top: 260px;
+        font-size: 3dvh;
+    }
+    #vissza{
+        font-size: 200%;
+        bottom: 3%;
+        right: 3%;
+    }
+}
+@media (max-width:321px){
+    ul.lista {
+        margin-left: 10%;
+        margin-right: 10%;
+        max-width: 80%
+    }
+    li.rel a{
+        font-size: 7px;
+        padding: 0.72rem 0.478rem;
+    }
+    li.rel #kosarSzam{
+        font-size: 7px;
+        top: -0.4rem;
+        right: 0.2rem;
+    }
+    .tabl_kepek{
+        margin-top: 4vh;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    .kep{
+        float: left;
+        margin-left: 10%;
+        margin-top: 10px;
+        width: 25%;
+    }
+    .szoveg{
+        font-size: 0.44rem;
+        position: absolute;
+        width: 50%;
+        margin-top: 3.6vh;
+        margin-left: 35%;
+        margin-right: 20%;
+    }
+    .iras{
+        margin-top: 1%;
+    }
+    .iras2{
+        margin-top: 24%;
+    }
+    .iras3{
+        margin-top: 48%;
+    }
+    .akepek{
+        width: 32%;
+    }
+    .hambi{
+        font-size: 1.5rem;
+        margin-left: 10%;
+    }
+    .pizza{
+        font-size: 1.5rem;
+        margin-left: 10%;
+    }
+    #tablazatuj{
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    .nev{
+        font-size: 12px;
+    }
+    .meret{
+        text-align: center;
+        font-size: 12px;
+    }   
+    .ar{
+        text-align: center;
+        font-size: 12px;
+    }
+    .rendel{
+        padding: 0.6rem; 
+        font-size: 0.6rem;
+    }
+    #szoveglent{
+        margin-left: 5%;
+        font-size: 0.64rem;
+    }
+    #elerhet{
+        font-size: 0.6rem;
+    }
+    #footer{
+        padding: 30px;
+        margin-top: 260px;
+        font-size: 3dvh;
+    }
+    #vissza{
+        font-size: 200%;
+        bottom: 3%;
+        right: 3%;
+    }
+}
+@media (max-width:305px){
+    ul.lista {
+        margin-left: 10%;
+        margin-right: 10%;
+        max-width: 80%
+    }
+    li.rel a{
+        font-size: 6.5px;
+        padding: 0.7rem 0.421rem;
+    }
+    li.rel #kosarSzam{
+        font-size: 6.5px;
+        top: -0.4rem;
+        right: 0.2rem;
+    }
+    .tabl_kepek{
+        margin-top: 4vh;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    .kep{
+        float: left;
+        margin-left: 10%;
+        margin-top: 10px;
+        width: 25%;
+    }
+    .szoveg{
+        font-size: 0.4rem;
+        position: absolute;
+        width: 50%;
+        margin-top: 2.4vh;
+        margin-left: 35%;
+        margin-right: 20%;
+    }
+    .iras{
+        margin-top: 1%;
+    }
+    .iras2{
+        margin-top: 24%;
+    }
+    .iras3{
+        margin-top: 48%;
+    }
+    .akepek{
+        width: 32%;
+    }
+    .hambi{
+        font-size: 1.5rem;
+        margin-left: 10%;
+    }
+    .pizza{
+        font-size: 1.5rem;
+        margin-left: 10%;
+    }
+    #tablazatuj{
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    .nev{
+        font-size: 12px;
+    }
+    .meret{
+        text-align: center;
+        font-size: 12px;
+    }   
+    .ar{
+        text-align: center;
+        font-size: 12px;
+    }
+    .rendel{
+        padding: 0.6rem; 
+        font-size: 0.6rem;
+    }
+    #szoveglent{
+        margin-left: 5%;
+        font-size: 0.64rem;
+    }
+    #elerhet{
+        font-size: 0.6rem;
+    }
+    #footer{
+        padding: 30px;
+        margin-top: 220px;
+        font-size: 3dvh;
+    }
+    #vissza{
+        font-size: 200%;
+        bottom: 3%;
+        right: 3%;
+    }
+}
+@media (max-width:280px){
+    ul.lista {
+        margin-left: 10%;
+        margin-right: 10%;
+        max-width: 80%
+    }
+    li.rel a{
+        font-size: 6px;
+        padding: 0.65rem 0.346rem;
+    }
+    li.rel #kosarSzam{
+        font-size: 6px;
+        top: -0.4rem;
+        right: 0.2rem;
+    }
+    .tabl_kepek{
+        margin-top: 4vh;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    .kep{
+        float: left;
+        margin-left: 10%;
+        margin-top: 10px;
+        width: 25%;
+    }
+    .szoveg{
+        font-size: 0.4rem;
+        position: absolute;
+        width: 50%;
+        margin-top: 2.4vh;
+        margin-left: 35%;
+        margin-right: 20%;
+    }
+    .iras{
+        margin-top: 1%;
+    }
+    .iras2{
+        margin-top: 24%;
+    }
+    .iras3{
+        margin-top: 48%;
+    }
+    .akepek{
+        width: 32%;
+    }
+    .hambi{
+        font-size: 1.5rem;
+        margin-left: 10%;
+    }
+    .pizza{
+        font-size: 1.5rem;
+        margin-left: 10%;
+    }
+    #tablazatuj{
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    .nev{
+        font-size: 12px;
+    }
+    .meret{
+        text-align: center;
+        font-size: 12px;
+    }   
+    .ar{
+        text-align: center;
+        font-size: 12px;
+    }
+    .rendel{
+        padding: 0.6rem; 
+        font-size: 0.6rem;
+    }
+    #szoveglent{
+        margin-left: 5%;
+        font-size: 0.54rem;
+    }
+    #elerhet{
+        font-size: 0.5rem;
+    }
+    #footer{
+        padding: 30px;
+        margin-top: 200px;
+        font-size: 3dvh;
+    }
+    #vissza{
+        font-size: 200%;
+        bottom: 3%;
+        right: 3%;
+    }
+}
+@media (max-width:280px){
+    ul.lista {
+        margin-left: 10%;
+        margin-right: 10%;
+        max-width: 80%
+    }
+    li.rel a{
+        font-size: 6px;
+        padding: 0.65rem 0.346rem;
+    }
+    li.rel #kosarSzam{
+        font-size: 6px;
+        top: -0.4rem;
+        right: 0.2rem;
+    }
+    .tabl_kepek{
+        margin-top: 4vh;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    .kep{
+        float: left;
+        margin-left: 10%;
+        margin-top: 10px;
+        width: 25%;
+    }
+    .szoveg{
+        font-size: 0.4rem;
+        position: absolute;
+        width: 50%;
+        margin-top: 2.4vh;
+        margin-left: 35%;
+        margin-right: 20%;
+    }
+    .iras{
+        margin-top: 1%;
+    }
+    .iras2{
+        margin-top: 24%;
+    }
+    .iras3{
+        margin-top: 48%;
+    }
+    .akepek{
+        width: 32%;
+    }
+    .hambi{
+        font-size: 1.5rem;
+        margin-left: 10%;
+    }
+    .pizza{
+        font-size: 1.5rem;
+        margin-left: 10%;
+    }
+    #tablazatuj{
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    .nev{
+        font-size: 12px;
+    }
+    .meret{
+        text-align: center;
+        font-size: 12px;
+    }   
+    .ar{
+        text-align: center;
+        font-size: 12px;
+    }
+    .rendel{
+        padding: 0.6rem; 
+        font-size: 0.6rem;
+    }
+    #szoveglent{
+        margin-left: 5%;
+        font-size: 0.54rem;
+    }
+    #elerhet{
+        font-size: 0.5rem;
+    }
+    #footer{
+        padding: 30px;
+        margin-top: 200px;
+        font-size: 3dvh;
+    }
+    #vissza{
+        font-size: 200%;
+        bottom: 3%;
+        right: 3%;
+    }
+}
