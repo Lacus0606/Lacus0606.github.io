@@ -436,7 +436,15 @@ async function botMove() {
     await new Promise(r => setTimeout(r, 600));
     let allMoves = getAllValidMoves(board, false);
     console.log(allMoves); 
-    if (allMoves.length === 0) return;
+    if (allMoves.length === 0) {
+        if (isInCheck(board, false)) {
+            popUp("mate", "white");    
+        }
+        else if (isStaleMate(board, false)) {
+            popUp("draw", null);
+        }
+        return;
+    }
     let randomMove = allMoves[Math.floor(Math.random() * allMoves.length)];
 
     let fromRow = randomMove[0];
@@ -450,8 +458,14 @@ async function botMove() {
         blackHaveCaptured.push(capturedPiece);    
     }
 
-    board[toRow][toCol] = board[fromRow][fromCol];
+    if (toRow == 7) {
+        board[toRow][toCol] = "♛";
+    }
+    else {
+        board[toRow][toCol] = board[fromRow][fromCol];
+    }
     board[fromRow][fromCol] = null;
+    
 
     setCapturedDisplay();
     renderBoard();
