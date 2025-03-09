@@ -1,0 +1,72 @@
+:root {
+    --bg-img-color: linear-gradient(to bottom right, white, rgb(116, 100, 100));
+    --popup-text-color: black;
+}
+
+
+.active{
+    position: fixed;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+}
+#overlay{
+    pointer-events: all;
+    transition: 200ms ease-in-out;
+    opacity: 1;
+}
+
+.hidden {
+    display: none;
+}
+
+#window {
+    position: fixed;
+    width: 50%;
+    left: 25%;
+    right: 25%;
+    top: 20%;
+    height: 56%;
+    padding: 20px;
+    margin: auto;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    background-image: var(--bg-img-color);
+    justify-content: center;
+    align-items: center;
+}
+
+#window.light-mode {
+    --bg-img-color: linear-gradient(to bottom right, black, rgb(150, 120, 120));
+}
+
+#content {
+    padding: 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    text-align: center;
+    color: var(--popup-text-color);
+}
+
+#content.light-mode {
+    --popup-text-color: white;
+}
+
+#content button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;    
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+#content select {
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+    font-size: 15px;
+    height: 24px;
+}

@@ -1,0 +1,257 @@
+:root {
+    --bg-image: linear-gradient(to bottom right, black, rgb(150, 120, 120));
+    --text-color: rgb(225, 210, 200);
+    --square : 220px;
+    --bg-img-color: linear-gradient(to bottom right, white, rgb(116, 100, 100));
+    --popup-text-color: black;
+}
+
+
+body {
+    background-image: var(--bg-image);
+    color: var(--text-color);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    font-family: "Cinzel";
+}
+
+body.light-mode {
+    --bg-image: linear-gradient(to bottom right, white, rgb(116, 100, 100));
+    --text-color: rgb(32, 32, 32);
+}
+
+#chessboard {
+    display: grid;
+    grid-template-columns: repeat(8, 75px);
+    grid-template-rows: repeat(8, 75px);
+    width: 600px;
+    height: 600px;
+    margin-left: 200px;
+    user-select: none;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    cursor: grabbing;
+}
+
+.dragging {
+    opacity: 0.8;
+    cursor: grab;
+}
+
+.light-square {
+    width: 75px;
+    height: 75px;
+    background-color: rgb(215, 180, 122);
+}
+
+.dark-square {
+    width: 75px;
+    height: 75px;
+    background-color: rgb(60, 60, 60);
+}
+
+.white {
+    color: white;
+    text-align: center;
+    font-size: 50px;
+}
+
+.black {
+    color: black;
+    text-align: center;
+    font-size: 50px;
+    cursor: no-drop;
+}
+
+.black::backdrop {
+    cursor: no-drop;
+}
+    
+a {
+    text-decoration: none;
+    color: var(--text-color);
+    text-align: center;
+}
+
+.hidden {
+    opacity: 0;
+    z-index: -4;
+    user-select: none;
+}
+
+#whitePromotionPieces {
+    position: absolute;
+    background-color: rgb(215, 180, 122);
+    color : white;
+    top : 86px;
+    left: var(--square);
+    font-size: 50px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+#whitePromotionPieces div {
+    cursor: pointer;
+}
+
+#blackPromotionPieces {
+    position: absolute;
+    background-color:  rgb(215, 180, 122);
+    color : black;
+    top : 400px;
+    left: var(--square);
+    font-size: 50px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+#blackPromotionPieces div {
+    cursor: pointer;
+}
+
+.appearing {
+    animation-name: frame;
+    animation-duration: 1.2s;
+    animation-timing-function: cubic-bezier();
+} 
+
+@keyframes frame {
+    0% {
+        box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+    }
+    50% {
+        box-shadow: 8px 8px 32px rgba(215, 180, 120, 0.75);
+    }
+    100% {
+        box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+    }
+}
+
+.invalid {
+    animation-name: invalid;
+    animation-duration: 1.2s;
+    animation-timing-function: cubic-bezier();
+}
+
+@keyframes invalid {
+    0% {
+        box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+    }
+    50% {
+        box-shadow: 8px 8px 32px rgba(255, 0, 0, 0.84);
+    }
+    100% {
+        box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+    }
+}
+
+
+.active{
+    position: fixed;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+}
+#overlay{
+    pointer-events: all;
+    transition: 200ms ease-in-out;
+    opacity: 1;
+}
+
+.hidden {
+    display: none;
+}
+
+#modal-popup {
+    position: fixed;
+    width: 50%;
+    left: 25%;
+    right: 25%;
+    top: 20%;
+    height: 56%;
+    padding: 20px;
+    margin: auto;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    background-image: var(--bg-img-color);
+    justify-content: center;
+    align-items: center;
+}
+
+#modal-popup.light-mode {
+    --bg-img-color: linear-gradient(to bottom right, black, rgb(150, 120, 120));
+}
+
+#content {
+    padding: 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    text-align: center;
+    color: var(--popup-text-color);
+}
+
+#content.light-mode {
+    --popup-text-color: white;
+}
+
+#content button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;    
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+#white-capture-container {
+    
+    font-size: 1.4rem;
+    position: absolute;
+    width: 25%;
+    left: 820px;
+    top: 85%;
+    height: 8%;
+    padding: 20px;
+    margin: auto;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    background-image: var(--bg-img-color);
+    justify-content: center;
+    align-items: center;
+    color: var(--popup-text-color);
+    z-index: -1;
+}
+
+#white-capture-container.light-mode {
+    --bg-img-color: linear-gradient(to bottom right, black, rgb(150, 120, 120));
+    --popup-text-color: white;
+}
+
+#white-capture {
+    margin: 0;
+    padding: 0;
+}
+
+#black-capture-container {
+    
+    font-size: 1.4rem;
+    position: absolute;
+    width: 25%;
+    left: 820px;
+    top: 12.5%;
+    height: 8%;
+    padding: 20px;
+    margin: auto;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    background-image: var(--bg-img-color);
+    justify-content: center;
+    align-items: center;
+    color: var(--popup-text-color);
+    z-index: -1;
+}
+
+#black-capture-container.light-mode {
+    --bg-img-color: linear-gradient(to bottom right, black, rgb(150, 120, 120));
+    --popup-text-color: white;
+}

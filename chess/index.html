@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="./style/switch.css">
+    <link rel="stylesheet" href="./style/window.css">
+    <link href='https://fonts.googleapis.com/css?family=Cinzel' rel='stylesheet'>
+    <title>Sakk</title>
+</head>
+<body>
+    <label class="switch">
+        <input type="checkbox" id="theme-toggle">
+        <span class="slider round"></span>
+    </label>
+
+    <h1>Sakk</h1>
+    
+    <div id="container">
+        <div id="chessboard" onclick="windowPopUp()"></div>
+        <div id="modes">
+            <div onclick="windowPopUp()"> Játék a gép ellen </div>
+            <div> Feladványok </div>
+            <div> Játszmaelemző </div>
+        </div>
+    </div>
+
+    <div id="overlay"></div>
+    
+    <div id="window" class="hidden">
+        <div id="content">
+            <h2>Játék beállításai</h2>
+            <label for="difficulty">Nehézségi szint:</label>
+            <select id="difficulty">
+                <option value="easy">Könnyű</option>
+                <option disabled value="medium">Közepes</option>
+                <option disabled value="hard">Nehéz</option>
+            </select>
+            <br><br>
+            <label for="player-color">Válaszd ki a színed:</label>
+            <select id="player-color">
+                <option value="white">Fehér</option>
+                <option disabled value="black">Fekete</option>
+            </select>
+            <br><br>
+            <p>A játékmenet még fejlesztés alatt áll, nem teljes verzió!</p>
+            <p>Sok sikert!</p>
+            <br><br>
+            <button id="start-game">Indítás</button>
+            <button id="close-window" onclick="closeWindow()">Mégse</button>
+        </div>
+    </div>
+
+    <script src="./script/script.js"></script>
+    <script src="./script/window.js"></script>
+</body>
+</html>

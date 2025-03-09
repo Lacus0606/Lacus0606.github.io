@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/game.css">
+    <link href='https://fonts.googleapis.com/css?family=Cinzel' rel='stylesheet'>
+    <title>Sakk</title>
+</head>
+<body>
+    <a href="index.html"><h1>Sakk</h1></a>
+    <div id="chessboard"></div>
+
+    <div id="whitePromotionPieces" class="hidden"> 
+        <div id="w_queen">♕</div>
+        <div id="w_rook">♖</div>
+        <div id="w_knight">♘</div>
+        <div id="w_bishop">♗</div>
+    </div>
+    <div id="blackPromotionPieces" class="hidden"> 
+        <div id="b_bishop">♝</div>
+        <div id="b_knight">♞</div>
+        <div id="b_rook">♜</div>
+        <div id="b_queen">♛</div>
+    </div>  
+    
+    <div id="overlay"></div>
+
+    <div id="modal-popup" class="hidden">
+        <div id="content">
+            <h2 id="text-content"></h2>
+            <button id="play-again">Játssz újra!</button>
+            <button id="back-home">Vissza a főoldalra!</button>
+            <button id="game-inspector">Játszmaelemző!</button>
+
+        </div>
+    </div>
+
+    <div id="white-capture-container">Világos: <div id="white-capture"></div></div>
+    <div id="black-capture-container">Sötét: <div id="black-capture"></div></div>
+
+    <script src="./script/game.js" type="module"></script>
+</body>
+</html>
