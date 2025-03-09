@@ -102,13 +102,13 @@ async function popUp(state, color) {
     modal.classList.remove("hidden");
     const textContent = document.getElementById("text-content");
     if (state == "draw") {
-        textContent.innerHTML = "The game resulted in a draw!"
+        textContent.innerHTML = "Döntetlen!"
     }
     else if (state == "mate" && color == "white") {
-        textContent.innerHTML = "Congratulations! You won!"
+        textContent.innerHTML = "Gratulálok, nyertél!"
     }
     else if (state == "mate" && color == "black") {
-        textContent.innerHTML = "Sorry, you lost!"
+        textContent.innerHTML = "Sajnos vesztettél!"
     }
     
 }
