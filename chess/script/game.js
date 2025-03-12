@@ -536,7 +536,7 @@ async function botMove() {
             board[bestToRow][bestToCol] = "♛";
         }
         else {
-            if (bestFromRow == 0 && bestFromCol == 4) {
+            if (bestMove=="e8g8" || bestMove=="e8c8" ) {
                 if (bestToCol==6) {
                     board[0][5] = "♜";
                     board[0][6] = "♚";
