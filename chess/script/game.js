@@ -4,6 +4,8 @@ import { isValidWhitePawnMove, isValidBlackPawnMove, isValidWhiteBishMove, isVal
     validBlackaCastle, validBlackhCastle, getAllValidMoves
 } from "./moveValidations.js";
 
+import { evaluation } from "./evaluate.js";
+
 
 let board = [
     ['\u265C', '\u265E', '\u265D', '\u265B', '\u265A', '\u265D', '\u265E', '\u265C'], 
@@ -430,12 +432,84 @@ function choosePromotionPiece(isWhite, row, col) {
     }
 }
 
+async function getBestMove(fen) {
+    const url = `https://stockfish.online/api/s/v2.php?fen=${encodeURIComponent(fen)}&depth=12`;
+    
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        console.log("Legjobb lépés:", data.bestmove); 
+        const array = data.bestmove.split(" ");
+        let bestMove = array[1];
+        return bestMove;
+    } catch (error) {
+        console.error("Hiba történt:", error);
+    }
+}
+
+function boardToFEN(board) {
+    let fen = "";
+    
+    for (let i = 0; i < 8; i++) {
+        let emptyCount = 0;
+        
+        for (let j = 0; j < 8; j++) {
+            let piece = board[i][j];
+            
+            if (!piece) {
+                emptyCount++;
+            } else {
+                if (emptyCount > 0) {
+                    fen += emptyCount;
+                    emptyCount = 0;
+                }
+
+                switch (piece) {
+                    case "♔": fen += "K"; break;
+                    case "♕": fen += "Q"; break;
+                    case "♖": fen += "R"; break;
+                    case "♗": fen += "B"; break;
+                    case "♘": fen += "N"; break;
+                    case "♙": fen += "P"; break;
+                    case "♚": fen += "k"; break;
+                    case "♛": fen += "q"; break;
+                    case "♜": fen += "r"; break;
+                    case "♝": fen += "b"; break;
+                    case "♞": fen += "n"; break;
+                    case "♟": fen += "p"; break;
+                }
+            }
+        }
+        
+        if (emptyCount > 0) fen += emptyCount;
+        if (i < 7) fen += "/";
+    }
+    return fen + " b KQkq - 0 1";
+}
+
+function algebraToMatrix(move) {
+    if (move.length !== 4) {
+        return null;
+    }
+
+    let fromCol = move.charCodeAt(0) - 'a'.charCodeAt(0); 
+    let fromRow = 8 - parseInt(move[1]);
+    let toCol = move.charCodeAt(2) - 'a'.charCodeAt(0);
+    let toRow = 8 - parseInt(move[3]);
+
+    return [fromRow, fromCol, toRow, toCol];
+}
+
 async function botMove() {
     const tempBoard = board.map(row => [...row]); 
 
-    await new Promise(r => setTimeout(r, 600));
-    let allMoves = getAllValidMoves(board, false);
-    console.log(allMoves); 
+    await new Promise(r => setTimeout(r, 1000));
+    let fen = boardToFEN(board);
+    let bestMove = await getBestMove(fen);
+
+    
+    let allMoves = getAllValidMoves(board, false); 
+    
     if (allMoves.length === 0) {
         if (isInCheck(board, false)) {
             popUp("mate", "white");    
@@ -445,31 +519,60 @@ async function botMove() {
         }
         return;
     }
-    let randomMove = allMoves[Math.floor(Math.random() * allMoves.length)];
 
-    let fromRow = randomMove[0];
-    let fromCol = randomMove[1];
-    let toRow = randomMove[2];
-    let toCol = randomMove[3];
+    if (bestMove) {
+        let bestFromRow = algebraToMatrix(bestMove)[0];
+        let bestFromCol = algebraToMatrix(bestMove)[1];
+        let bestToRow = algebraToMatrix(bestMove)[2];
+        let bestToCol = algebraToMatrix(bestMove)[3];
 
-    let capturedPiece = tempBoard[toRow][toCol];
+        let capturedPiece = tempBoard[bestToRow][bestToCol];
         
-    if (capturedPiece!==null) {
-        blackHaveCaptured.push(capturedPiece);    
-    }
+        if (capturedPiece!==null && capturedPiece.charCodeAt(0)<9818) {
+            blackHaveCaptured.push(capturedPiece);    
+        }
 
-    if (toRow == 7) {
-        board[toRow][toCol] = "♛";
+        if (bestToRow == 7 && tempBoard[bestFromRow][bestFromCol] === "♟") {
+            board[bestToRow][bestToCol] = "♛";
+        }
+        else {
+            if (bestFromRow == 0 && bestFromCol == 4) {
+                if (bestToCol==6) {
+                    board[0][5] = "♜";
+                    board[0][6] = "♚";
+                    board[0][7] = null;
+                }
+                
+                if (bestToCol==2) {
+                    board[0][3] = "♜";
+                    board[0][2] = "♚";
+                    board[0][0] = null;
+                }
+            }
+            else {
+                board[bestToRow][bestToCol] = board[bestFromRow][bestFromCol];
+            }
+        }
+        board[bestFromRow][bestFromCol] = null;
     }
-    else {
-        board[toRow][toCol] = board[fromRow][fromCol];
-    }
-    board[fromRow][fromCol] = null;
-    
-
     setCapturedDisplay();
     renderBoard();
+
     isWhiteTurn = true;
+
+    if (isInCheck(board, true)) {
+        if (isCheckMate(board, true)){
+            if (true) {
+                popUp("mate", "black");    
+            }
+        }
+        else {
+            checkAppears();
+        }
+    }
+    else if (isStaleMate(board, isWhiteTurn)) {
+        popUp("draw", null);
+    }
 }
 
 chessboard.addEventListener("dragstart", (e) => {
