@@ -488,16 +488,19 @@ function boardToFEN(board) {
 }
 
 function algebraToMatrix(move) {
-    if (move.length !== 4) {
-        return null;
-    }
-
     let fromCol = move.charCodeAt(0) - 'a'.charCodeAt(0); 
     let fromRow = 8 - parseInt(move[1]);
     let toCol = move.charCodeAt(2) - 'a'.charCodeAt(0);
     let toRow = 8 - parseInt(move[3]);
 
-    return [fromRow, fromCol, toRow, toCol];
+    if (move.length == 4) {
+        return [fromRow, fromCol, toRow, toCol];
+    }
+    else if (move.length == 5) {
+        let promotionPiece = move[4];
+        return [fromRow, fromCol, toRow, toCol, promotionPiece];
+    }
+    return null;
 }
 
 async function botMove() {
@@ -506,7 +509,6 @@ async function botMove() {
     await new Promise(r => setTimeout(r, 1000));
     let fen = boardToFEN(board);
     let bestMove = await getBestMove(fen);
-
     
     let allMoves = getAllValidMoves(board, false); 
     
@@ -532,11 +534,17 @@ async function botMove() {
             blackHaveCaptured.push(capturedPiece);    
         }
 
-        if (bestToRow == 7 && tempBoard[bestFromRow][bestFromCol] === "♟") {
-            board[bestToRow][bestToCol] = "♛";
+        if (bestMove.length==5) {
+            switch (bestMove[4]) {
+                case "q": board[bestToRow][bestToCol] = "♛"; break;
+                case "r": board[bestToRow][bestToCol] = "♜"; break;
+                case "k": board[bestToRow][bestToCol] = "♞"; break;
+                case "b": board[bestToRow][bestToCol] = "♝"; break;
+                default: break;
+            }
         }
         else {
-            if (bestMove=="e8g8" || bestMove=="e8c8" ) {
+            if ((bestMove=="e8g8" || bestMove=="e8c8") && board[bestFromRow][bestFromCol]=="♚") {
                 if (bestToCol==6) {
                     board[0][5] = "♜";
                     board[0][6] = "♚";
@@ -813,6 +821,7 @@ chessboard.addEventListener("drop", (e) => {
         else {
             board[toRow][toCol] = draggedPiece;
             board[fromRow][fromCol] = null;
+            let lastMove = [fromRow, fromCol, toRow, toCol]
 
             if (fromRow == 7 && fromCol == 0) {
                 whiteaRookMoved = true;

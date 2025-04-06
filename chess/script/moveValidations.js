@@ -22,6 +22,11 @@ function isValidWhitePawnMove(board, fromRow, fromCol, toRow, toCol){
         return true;
     }
 
+    /*if (enPassant(lastMove, true) && toRow === fromRow-1 &&
+        (toCol === fromCol-1 || toCol === fromCol+1)) {
+            return true;
+        }*/
+
     return false;
 }
 
